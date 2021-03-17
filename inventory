@@ -1,0 +1,20 @@
+[tower]
+localhost ansible_connection=local
+
+[database]
+
+[all:vars]
+admin_password='awxpass'
+
+pg_host='postgres'
+pg_port='5432'
+
+pg_database='awx'
+pg_username='awx'
+pg_password='awxpass'
+
+#rabbitmq_port=5672
+#rabbitmq_vhost=tower
+#rabbitmq_username=tower
+#rabbitmq_password='password'
+#rabbitmq_cookie=rabbitmqcookie
