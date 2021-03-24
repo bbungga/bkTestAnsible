@@ -1,6 +1,6 @@
 - name: Create Ec2 Instance
   hosts: localhost
-  ec2:
+  amazon.aws.ec2:
     key_name: "{{ key }}"
     instance_tags: {Name: "{{ name }}"}
     group_id: "{{ security_group }}"
