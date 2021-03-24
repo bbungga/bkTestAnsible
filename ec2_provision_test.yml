@@ -8,14 +8,14 @@
     - name: Launch Instance
       local_action:
         module: ec2
-        keypair: "{{ key }}"
+        key_name: "{{ key }}"
         instance_type: "{{ instance_type }}"
         region: "{{ region }}"
         image: "{{ image }}"
         wait: yes
         count: 1
         vpc_subnet_id: "{{ subnet }}"
-        instance_tags: {Name: "{{ name }}"}
+        instance_tags: {Name: "{{ instance_name }}"}
         assign_public_ip: yes
       register: ec2
 
