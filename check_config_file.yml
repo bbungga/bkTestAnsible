@@ -13,3 +13,6 @@
     
     - name: "Print out clouds variable"
       debug: msg="{{ clouds|default('No clouds found') }}"
+
+    - name: "Print out ansible environments"
+      debug: msg="{{ ansible_env|default('Wrong') }}"
