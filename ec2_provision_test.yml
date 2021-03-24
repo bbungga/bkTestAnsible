@@ -8,8 +8,7 @@
     - name: Launch Instance
       local_action:
         module: ec2
-        key_name: "{{ key }}"
-        group_id: "{{ security_group }}"
+        keypair: "{{ key }}"
         instance_type: "{{ instance_type }}"
         region: "{{ region }}"
         image: "{{ image }}"
