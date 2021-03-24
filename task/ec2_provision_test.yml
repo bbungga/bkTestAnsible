@@ -1,4 +1,5 @@
 - name: Create Ec2 Instance
+  hosts: localhost
   ec2:
     key_name: "{{ key }}"
     instance_tags: {Name: "{{ name }}"}
