@@ -6,9 +6,6 @@
     aws:
       access_key: '{{ lookup("env", "AWS_ACCESS_KEY_ID") }}'
       secret_key: '{{ lookup("env", "AWS_SECRET_ACCESS_KEY") }}'
-    machine:
-      username: '{{ ansible_user }}'
-      password: '{{ ansible_password }}'
 
   tasks:
     - name: Printing all the environment variables in Ansible`
@@ -18,7 +15,3 @@
     - name: Printing AWS credential informations
       debug:
         msg: "{{ aws }}"
-
-    - name: Printing machine credential informations 
-      debug:
-        msg: "{{ machine }}"
