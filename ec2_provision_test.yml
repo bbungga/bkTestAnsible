@@ -4,12 +4,19 @@
   gather_facts: true
   connection: local
 
+  vars:
+    aws:
+      access_key: '{{ lookup("env", "AWS_ACCESS_KEY_ID") }}'
+      secret_key: '{{ lookup("env", "AWS_SECRET_ACCESS_KEY") }}'
+
   tasks:
     - name: Launch Instance
       local_action:
         module: ec2
-        aws_access_key: "{{ ansible_env.AWS_ACCESS_KEY_ID }}"
-        aws_secret_key: "{{ ansible_env.AWS_SECRET_ACCESS_KEY }}"
+        #aws_access_key: "{{ ansible_env.AWS_ACCESS_KEY_ID }}"
+        #aws_secret_key: "{{ ansible_env.AWS_SECRET_ACCESS_KEY }}"
+        aws_access_key: "{{ aws.access_key }}"
+        aws_secret_key: "{{ aws.secret_key }}"
         key_name: "{{ key }}"
         instance_type: "{{ instance_type }}"
         region: "{{ region }}"

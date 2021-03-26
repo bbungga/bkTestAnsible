@@ -10,8 +10,5 @@
   tasks:
     - name: Printing AWS credential informations
       debug:
-        msg: "{{ aws }}"
+        msg: "{{ aws.access_key }}, {{ aws.secret_key }}"
 
-    - name: Printing all the environment variables in Ansible`
-      debug:
-        msg: "{{ ansible_env }}"
