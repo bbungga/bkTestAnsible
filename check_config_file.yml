@@ -1,6 +1,12 @@
 ---
 - hosts: all
   gather_facts: true
+
+  vars:
+    aws:
+      access_key: '{{ lookup("env", "AWS_ACCESS_KEY_ID") }}'
+      secret_key: '{{ lookup("env", "AWS_SECRET_ACCESS_KEY") }}'
+
   tasks:
     - name: Printing all the environment variables in Ansible`
       debug:
@@ -8,4 +14,4 @@
 
     - name: Printing all the environment variabes
       debug:
-        msg: "{{ env }}"
+        msg: "{{ aws }}"
