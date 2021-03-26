@@ -8,10 +8,10 @@
       secret_key: '{{ lookup("env", "AWS_SECRET_ACCESS_KEY") }}'
 
   tasks:
-    - name: Printing all the environment variables in Ansible`
-      debug:
-        msg: "{{ ansible_env }}"
-
     - name: Printing AWS credential informations
       debug:
         msg: "{{ aws }}"
+
+    - name: Printing all the environment variables in Ansible`
+      debug:
+        msg: "{{ ansible_env }}"
