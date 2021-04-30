@@ -10,6 +10,7 @@ pipeline {
                 '''
             }
         }
+        /*
         stage('Deploy') {
             steps {
                 retry(3) {
@@ -21,8 +22,9 @@ pipeline {
                 }
             }
         }
+        */
         stage('Ansible Tower Test') {
-            steps {
+            node('master') {
                 towerJob = ansibleTower(
                     async: true,
                     jobTemplate: 'Demo Job Template',
@@ -30,7 +32,6 @@ pipeline {
                     towerServer: 'AWS Workroom'
                 )
             }
-
         }
     }
     post {
