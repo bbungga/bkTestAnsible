@@ -29,10 +29,12 @@ pipeline {
                     results = ansibleTower(
                         async: false,
                         jobTemplate: 'Demo Job Template',
-                        jobType: 'run',
+                        jobTags: '',
+                        limit: '',
                         templateType: 'job',
                         towerServer: 'AWX Workroom',
                         throwExceptionWhenFail: false,
+                        importTowerLogs: true,
                         extraVars: '''---
                         test: "Wow!"''',
                         verbose: true
