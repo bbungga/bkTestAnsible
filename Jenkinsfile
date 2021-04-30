@@ -24,13 +24,19 @@ pipeline {
         }
         */
         stage('Ansible Tower Test') {
-            node('master') {
-                towerJob = ansibleTower(
-                    async: true,
-                    jobTemplate: 'Demo Job Template',
-                    templateType: 'job',
-                    towerServer: 'AWS Workroom'
-                )
+            steps {
+                script {
+                    results = ansibleTower(
+                        async: true,
+                        jobTemplate: 'Demo Job Template',
+                        jobType: 'run',
+                        templateType: 'job',
+                        towerServer: 'AWS Workroom',
+                        throwExceptionWhenFail: false,
+                        verbose: true
+                    )
+                    println(results)
+                }
             }
         }
     }
