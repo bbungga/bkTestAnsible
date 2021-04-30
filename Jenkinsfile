@@ -33,10 +33,8 @@ pipeline {
                         templateType: 'job',
                         towerServer: 'AWX Workroom',
                         throwExceptionWhenFail: false,
-                        extraVars: '''
-                        ---
-                        test: "Wow!"
-                        ''',
+                        extraVars: '''---
+                        test: "Wow!"''',
                         verbose: true
                     )
                     println(results)
