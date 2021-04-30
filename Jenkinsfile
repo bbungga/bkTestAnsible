@@ -21,6 +21,17 @@ pipeline {
                 }
             }
         }
+        stage('Ansible Tower Test') {
+            steps {
+                towerJob = ansibleTower(
+                    async: true,
+                    jobTemplate: 'Demo Job Template',
+                    templateType: 'job',
+                    towerServer: 'AWS Workroom'
+                )
+            }
+
+        }
     }
     post {
         always {
