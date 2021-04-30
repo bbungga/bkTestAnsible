@@ -27,12 +27,16 @@ pipeline {
             steps {
                 script {
                     results = ansibleTower(
-                        async: true,
+                        async: false,
                         jobTemplate: 'Demo Job Template',
                         jobType: 'run',
                         templateType: 'job',
                         towerServer: 'AWX Workroom',
                         throwExceptionWhenFail: false,
+                        extraVars: '''
+                        ---
+                        test: "Wow!"
+                        ''',
                         verbose: true
                     )
                     println(results)
