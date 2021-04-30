@@ -31,7 +31,7 @@ pipeline {
                         jobTemplate: 'Demo Job Template',
                         jobType: 'run',
                         templateType: 'job',
-                        towerServer: 'AWS Workroom',
+                        towerServer: 'AWX Workroom',
                         throwExceptionWhenFail: false,
                         verbose: true
                     )
